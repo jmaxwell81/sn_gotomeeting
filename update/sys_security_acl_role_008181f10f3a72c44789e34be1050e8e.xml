@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2017-05-18 14:10:54</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>008181f10f3a72c44789e34be1050e8e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_kasp_gotomeeting_properties.x_kasp_gotomeeting_properties_user</sys_name>
+        <sys_package display_value="GoToMeeting" source="x_kasp_gotomeeting">bd1e7cf90ff672c44789e34be1050e68</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="GoToMeeting">bd1e7cf90ff672c44789e34be1050e68</sys_scope>
+        <sys_security_acl display_value="x_kasp_gotomeeting_properties">cc8181f10f3a72c44789e34be1050e8c</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_008181f10f3a72c44789e34be1050e8e</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2017-05-18 14:10:54</sys_updated_on>
+        <sys_user_role display_value="x_kasp_gotomeeting_properties_user" name="x_kasp_gotomeeting_properties_user">f27149b10f3a72c44789e34be1050e94</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="security_token" label="Security Token" language="en" table="x_kasp_gotomeeting_properties">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>security_token</element>
+            <help/>
+            <hint/>
+            <label>Security Token</label>
+            <language>en</language>
+            <name>x_kasp_gotomeeting_properties</name>
+            <plural>Security Tokens</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>sebgar01</sys_created_by>
+            <sys_created_on>2017-05-18 14:10:55</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>d48181f10f3a72c44789e34be1050e95</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Security Token</sys_name>
+            <sys_package display_value="GoToMeeting" source="x_kasp_gotomeeting">bd1e7cf90ff672c44789e34be1050e68</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="GoToMeeting">bd1e7cf90ff672c44789e34be1050e68</sys_scope>
+            <sys_update_name>sys_documentation_x_kasp_gotomeeting_properties_security_token_en</sys_update_name>
+            <sys_updated_by>sebgar01</sys_updated_by>
+            <sys_updated_on>2017-05-18 14:10:55</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

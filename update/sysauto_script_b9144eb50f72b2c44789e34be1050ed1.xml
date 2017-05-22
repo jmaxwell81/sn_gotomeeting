@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Get License keys</name>
+        <run_as display_value="Admin ">fa14b1e9133d9a0053dc71522244b0be</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period>1970-01-02 00:00:00</run_period>
+        <run_start>2017-05-19 04:00:00</run_start>
+        <run_time>1970-01-01 05:00:00</run_time>
+        <run_type>periodically</run_type>
+        <script><![CDATA[(function(){
+	
+	var getToken = function(){
+		var prop = new GlideRecord('x_kasp_gotomeeting_properties');
+		prop.get('29b105f10f3a72c44789e34be1050ef8');
+		
+		return prop.getValue('security_token');
+	};
+
+	try{
+		
+		var endpoint = "https://api.citrixonline.com/admin/rest/v1/accounts/2438690773820923653/licenses";
+		
+		var rest = new sn_ws.RESTMessageV2();
+		rest.setHttpMethod('get');
+		rest.setRequestHeader("HTTP","1.1");
+		rest.setRequestHeader("Accept","application/json");
+		rest.setRequestHeader("Content-Type","application/json");
+		gs.info("GTM>>> Token"+getToken());
+		rest.setRequestHeader("Authorization","OAuth oauth_token=" + getToken());
+		
+		rest.setEndpoint(endpoint);
+		rest.setHttpTimeout(10000);
+		
+		var response = rest.execute();
+		response.waitForResponse(10);
+		if(response.haveError()){
+			gs.error("GTM>>>"+"Error getting licenses");
+			gs.error("GTM>>>"+ response.getErrorMessage());
+			
+		}else{
+			
+			var results = JSON.parse(response.getBody()).results;
+			var props = new GlideRecord('x_kasp_gotomeeting_properties');
+			props.get('29b105f10f3a72c44789e34be1050ef8');
+			
+			for(var i = 0;i < results.length; i++){
+				
+				if(results[i].products[0] == "OPENVOICE"){
+					props.setValue('openvoice_key', results[i].key);
+					props.update();
+				}
+				if(results[i].products[0] == "G2M"){
+					props.setValue('gotomeeting_key', results[i].key);
+					props.update();
+				}
+				
+			}
+			
+		}
+		
+	}catch(exception){
+		
+	}
+})();]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>sebgar01</sys_created_by>
+        <sys_created_on>2017-05-18 19:04:51</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>b9144eb50f72b2c44789e34be1050ed1</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Get License keys</sys_name>
+        <sys_package display_value="GoToMeeting" source="x_kasp_gotomeeting">bd1e7cf90ff672c44789e34be1050e68</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="GoToMeeting">bd1e7cf90ff672c44789e34be1050e68</sys_scope>
+        <sys_update_name>sysauto_script_b9144eb50f72b2c44789e34be1050ed1</sys_update_name>
+        <sys_updated_by>sebgar01</sys_updated_by>
+        <sys_updated_on>2017-05-18 19:39:24</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>
